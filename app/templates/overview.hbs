@@ -1,0 +1,62 @@
+<h1>Übersicht</h1>
+
+<div class="row">
+  <div class="col-xs-6">
+    {{#link-to "overview.add"  class="btn btn-primary"}}
+    <span class="glyphicon glyphicon-plus" > </span> Neu
+    {{/link-to}}
+  </div>
+  <div class="col-xs-6">
+    <div class="input-group">
+      {{input type="text" placeholder="Suche" class="form-control" value=search}}
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button">Go!</button>
+      </span>
+    </div>
+  </div>
+</div>
+{{outlet}}
+<div class="box">
+<table class="table table-striped">
+  <thead>
+    <th>Name</th>
+    <th>Ersteller</th>
+    <th>Datum</th>
+    <th>Betrag</th>
+    <th>Optionen</th>
+  </thead>
+  <tbody>
+    {{#each item in searchedlists}}
+    <tr>
+      <td>
+        {{#link-to "list" item}}
+          {{item.title}}
+        {{/link-to}}
+      </td>
+      <td>
+        {{item.user.name}}
+      </td>
+      <td>
+      </td>
+      <td>
+      </td>
+      <td>
+        <!-- Small menu band mit permissions objekt einbinden-->
+        {{#if item.permissions.edit}}
+        {{#link-to "lists.index.edit" model item class="btn btn-default btn-xs"}}
+        <span class="glyphicon glyphicon-pencil"></span>
+        {{/link-to}}
+        {{/if}}
+        {{#if item.permissions.delete}}
+        <button class="btn btn-default btn-xs" {{action 'delete'}}>
+          <span class="text-danger glyphicon glyphicon-trash"></span>
+        </button>
+        {{/if}}
+      </td>
+    </tr>
+    {{else}}
+    <span class="text-muted">Keine Einträge vorhanden.</span>
+    {{/each}}
+  </tbody>
+</table>
+</div>

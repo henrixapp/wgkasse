@@ -1,0 +1,41 @@
+<div class="navbar navbar-default">
+  <div class="navbar-header">
+    {{#link-to 'index' class="navbar-brand"}}WG<sub>Kasse</sub> <sup><small><span class="label label-info">PRO</span></small></sup>{{/link-to}}
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="sr-only"> Menü einblenden </span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+  </div>
+  <div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+      <li>
+        {{#link-to 'overview'}}Übersicht{{/link-to}}
+      </li>
+      <li>
+        {{#link-to 'mybill'}}Meine Abrechnung{{/link-to}}
+      </li>
+    </ul>
+  <div class="navbar-right" style="margin-right:8px">
+    <ul class="nav navbar-nav">
+      <li id="login">
+        <p class="navbar-btn">
+          {{#if session.isAuthenticated}}
+    <a {{action 'invalidateSession'}} class="btn btn-default">Logout</a>
+  {{else}}
+    {{#link-to 'login' class="btn btn-default"}}Login{{/link-to}}
+  {{/if}}
+        </p>
+      </li>
+    </ul>
+  </div>
+</div>
+</div>
+<div class="container">
+{{outlet}}
+</div>
+<footer>
+  &copy;2017, henriXapp
+  <button class="btn">Feedback geben</button>
+</footer>
