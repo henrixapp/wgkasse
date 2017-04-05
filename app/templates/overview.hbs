@@ -26,36 +26,16 @@
     <th>Optionen</th>
   </thead>
   <tbody>
-    {{#each item in searchedlists}}
+    {{#each model as |billing-item|}}
     <tr>
-      <td>
-        {{#link-to "list" item}}
-          {{item.title}}
-        {{/link-to}}
-      </td>
-      <td>
-        {{item.user.name}}
-      </td>
-      <td>
-      </td>
-      <td>
-      </td>
-      <td>
-        <!-- Small menu band mit permissions objekt einbinden-->
-        {{#if item.permissions.edit}}
-        {{#link-to "lists.index.edit" model item class="btn btn-default btn-xs"}}
-        <span class="glyphicon glyphicon-pencil"></span>
-        {{/link-to}}
-        {{/if}}
-        {{#if item.permissions.delete}}
-        <button class="btn btn-default btn-xs" {{action 'delete'}}>
-          <span class="text-danger glyphicon glyphicon-trash"></span>
-        </button>
-        {{/if}}
-      </td>
+      <td>{{billing-item.title}}</td>
+      <td>{{billing-item.author.name}}</td>
+      <td>{{billing-item.createdAt}}</td>
+      <td>{{billing-item.price}} €</td>
+      <td></td>
     </tr>
     {{else}}
-    <span class="text-muted">Keine Einträge vorhanden.</span>
+    Keine Einträge vorhanden.
     {{/each}}
   </tbody>
 </table>

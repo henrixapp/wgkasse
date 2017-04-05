@@ -1,2 +1,3 @@
-{{entry-editor}}
-SAVE{{outlet}}
+{{entry-editor item=model.item authors=model.users}}
+
+<button class="btn btn-success" {{action 'save' model.item}}>Speichern</button>{{outlet}}

@@ -12,6 +12,8 @@ Router.map(function() {
   });
   this.route('login');
   this.route('mybill');
+  this.route('authors');
+  this.route('billing-items');
 });
 
 export default Router;

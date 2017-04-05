@@ -6,11 +6,11 @@
 </div>
 <div class="form-group">
 <label>Betrag:</label>
-{{input type="Number" class="form-control" placeholder="Angebotsname" value=item.title}}
+{{input type="Number" step="0.01" class="form-control" placeholder="Preis" value=item.price}}
 </div>
-<div class="form-group">
-<label>Rechnungszeitpunkt:</label>
-{{bs-datetimepicker date=item.time format='HH:mm DD.MM.YYYY'}}
-</div>
+{{select-picker selection=item.author
+                content=users
+                optionLabelPath="content.name"
+                optionValuePath="content"}}
 </div>
 </div>
