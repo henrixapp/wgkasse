@@ -13,9 +13,12 @@
       <li>
         {{#link-to 'overview'}}Übersicht{{/link-to}}
       </li>
-      <li>
-        {{#link-to 'mybill'}}Meine Abrechnung{{/link-to}}
-      </li>
+
+      {{#if session.isAuthenticated}}
+        <li>
+          {{#link-to 'mybill'}}Meine Abrechnung{{/link-to}}
+        </li>
+      {{/if}}
     </ul>
   <div class="navbar-right" style="margin-right:8px">
     <ul class="nav navbar-nav">

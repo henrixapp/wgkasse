@@ -8,11 +8,13 @@
         <tr><td>Name</td><td>Betrag</td><td>Benutzer</td></tr>
     </thead>
       <tbody>
-        <tr><td>Scheuermilch</td><td>1.69</td><td>Henrik</td></tr>
+        {{#each model.all as |item|}}
+        <tr><td>{{item.title}}</td><td>{{item.price}}</td><td>{{item.author.name}}</td></tr>
+        {{/each}}
       </tbody>
 </table>
     <div class="panel-footer">
-      <strong>Summe:</strong>1.69
+      <strong>Summe:</strong>{{sumAll}}
     </div>
   </div>
 </div>
